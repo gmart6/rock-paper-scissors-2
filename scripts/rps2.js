@@ -58,4 +58,43 @@ function playRound(playerSelection, computerSelection) {
                 break;
         }
     }
+
+    switch (result) {
+        case "loss":
+            return ["loss", `You lose this round! ${computerSelection} beats ${playerSelection}.`];
+        case "win":
+            return ["win", `You win this round! ${playerSelection} beats ${computerSelection}.`];
+        case "draw":
+            return ["draw", `This round's a draw. ${playerSelection} and ${computerSelection}.`]
+    }
+}
+
+function game() {
+    let wins = 0;
+    let losses = 0;
+    let draws = 0;
+    console.log("let's play a 5 round game of rock, paper, scissors.");
+
+    for (let i = 0; i < 5; i++) {
+        let round = playRound(getPlayerChoice(), getComputerChoice());
+        switch(round[0]) {
+            case "win":
+                wins++;
+                break;
+            case "draw":
+                draws++;
+                break;
+            case "loss":
+                losses++;
+                break;
+        }
+        console.log(round[1]);
+    }
+    if (wins > losses) {
+        console.log(`You won the game! ${ wins } wins, ${ draws } draws, and ${ losses } losses.`);
+    } else if (losses > wins) {
+        console.log(`You lost the game! ${ wins } wins, ${ draws } draws, and ${ losses } losses.`)
+    } else {
+        console.log(`You drew. ${wins} wins, ${draws} draws, and ${losses} losses.`)
+    }
 }
