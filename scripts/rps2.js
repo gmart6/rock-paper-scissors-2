@@ -90,11 +90,12 @@ function game() {
         }
         console.log(round[1]);
     }
+    let scoreSummary = ` ${ wins } win(s), ${ draws } draw(s), and ${ losses } loss(es).`;
     if (wins > losses) {
-        console.log(`You won the game! ${ wins } wins, ${ draws } draws, and ${ losses } losses.`);
+        console.log("You won the game!" + scoreSummary);
     } else if (losses > wins) {
-        console.log(`You lost the game! ${ wins } wins, ${ draws } draws, and ${ losses } losses.`)
+        console.log("You lost the game!" + scoreSummary);
     } else {
-        console.log(`You drew. ${wins} wins, ${draws} draws, and ${losses} losses.`)
+        console.log("You drew the game!" + scoreSummary);
     }
 }
